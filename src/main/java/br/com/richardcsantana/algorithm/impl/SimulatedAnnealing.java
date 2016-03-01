@@ -6,6 +6,7 @@ package br.com.richardcsantana.algorithm.impl;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import br.com.richardcsantana.algorithm.Algorithm;
@@ -22,11 +23,17 @@ public class SimulatedAnnealing implements Algorithm {
 
 	private final NeighbourGenerator generator;
 	private final Avaliation avaliation;
-	private final double initialTemperature = 0;
-	private final int maxSuccessPerIteration = 100;
-	private final int maxGenerationsPerIteration = 10000;
-	private final double temperatureReductionFactor = 0.7;
-	private final int maxIterations = 1000;
+
+	@Value("${initialTemperature:0}")
+	private double initialTemperature;
+	@Value("${maxSuccessPerIteration:100}")
+	private int maxSuccessPerIteration;
+	@Value("${maxGenerationsPerIteration:100}")
+	private int maxGenerationsPerIteration;
+	@Value("${temperatureReductionFactor:0.2}")
+	private double temperatureReductionFactor;
+	@Value("${maxIterations:100}")
+	private int maxIterations;
 
 	@Autowired
 	public SimulatedAnnealing(final NeighbourGenerator generator, final Avaliation avaliation) {

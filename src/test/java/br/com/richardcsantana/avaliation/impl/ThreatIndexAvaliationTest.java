@@ -61,6 +61,7 @@ public class ThreatIndexAvaliationTest {
 		ng.put(5, 6);
 		ng.put(6, 3);
 		ng.put(7, 4);
+	    System.out.println(ng);
 		final int avaliationRate = avaliation.avaliate(ng);
 		Assert.assertEquals("Avaliando número de ameaças", 6, avaliationRate);
 	}

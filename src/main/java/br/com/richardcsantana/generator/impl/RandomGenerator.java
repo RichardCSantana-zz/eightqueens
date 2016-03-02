@@ -22,7 +22,7 @@ public class RandomGenerator implements NeighbourGenerator {
 		final Random r = new Random();
 		for (int col = 0; col < size; col++) {
 			final int row = r.nextInt(size);
-			neighbour.put(col, row);
+			neighbour.put(row, col);
 		}
 		return neighbour;
 	}

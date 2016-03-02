@@ -41,7 +41,7 @@ public class Neighbour {
 		for (int row = 0; row < maxSize; row++) {
 			for (int col = 0; col < maxSize; col++) {
 				result.append("[");
-				result.append((this.map[col][row]) ? "W" : " ");
+				result.append((this.map[row][col]) ? "W" : " ");
 				result.append("]");
 			}
 			result.append("\n");

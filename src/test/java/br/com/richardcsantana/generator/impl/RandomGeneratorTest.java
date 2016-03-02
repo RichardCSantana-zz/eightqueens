@@ -38,7 +38,7 @@ public class RandomGeneratorTest {
 		for (int col = 0; col < size; col++) {
 			int totalLocal = 0;
 			for (int row = 0; row < size; row++) {
-				if (neighbour.isOcupated(col, row)) {
+				if (neighbour.isOcupated(row, col)) {
 					totalLocal++;
 				}
 			}

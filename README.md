@@ -5,7 +5,7 @@ Implemented using **java8** and **spring-boot**.
 
 ## Build
 
-To build this run "mvn clean package" and get the EightQueens-0.0.1-SNAPSHOT.jar at the target folder.
+To build this run **"mvn clean package"** and get the **EightQueens-0.0.1-SNAPSHOT.jar** at the target folder.
 
 ## Configuration
 
@@ -20,4 +20,4 @@ maxGenerationsPerIteration | maximum number of generation of neighbours obtained
 temperatureReductionFactor | reduction factor of temperature at each iteration, must be less than 1
 maxIterations | maximum number of iterations
 numberOfQueens | number of queens to te algorithm solve
-logging.level.root | level of details about the algorithm running
+logging.level.root | level of details about the algorithm running ( INFO to result, DEBUG to execution)

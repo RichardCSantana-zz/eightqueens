@@ -3,6 +3,8 @@
  */
 package br.com.richardcsantana;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,23 +22,25 @@ import br.com.richardcsantana.model.Neighbour;
 @SpringBootApplication
 public class EightQueensSolver implements CommandLineRunner {
 
-	@Autowired
-	private Algorithm algorithm;
+    private static final Logger log = LoggerFactory.getLogger(EightQueensSolver.class);
 
-	@Autowired
-	private NeighbourGenerator generator;
+    @Autowired
+    private Algorithm algorithm;
 
-	@Autowired
-	private Avaliation avaliation;
+    @Autowired
+    private NeighbourGenerator generator;
 
-	public static void main(final String[] args) {
-		SpringApplication.run(EightQueensSolver.class, args);
-	}
+    @Autowired
+    private Avaliation avaliation;
 
-	public void run(final String... args) throws Exception {
-		final Neighbour result = algorithm.run(generator.generate(8));
-		System.out.println(result);
-		System.out.println(avaliation.avaliate(result));
-	}
+    public static void main(final String[] args) {
+        SpringApplication.run(EightQueensSolver.class, args);
+    }
+
+    public void run(final String... args) throws Exception {
+        final Neighbour result = algorithm.run(generator.generate(8));
+        log.info(String.format("Final Result:\n %s", result));
+        log.info(String.format("Avaliation: %s", avaliation.avaliate(result)));
+    }
 
 }

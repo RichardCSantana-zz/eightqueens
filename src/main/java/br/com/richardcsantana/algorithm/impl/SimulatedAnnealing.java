@@ -5,6 +5,8 @@ package br.com.richardcsantana.algorithm.impl;
 
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -20,6 +22,8 @@ import br.com.richardcsantana.model.Neighbour;
  */
 @Component
 public class SimulatedAnnealing implements Algorithm {
+
+    private static final Logger log = LoggerFactory.getLogger(SimulatedAnnealing.class);
 
     private final NeighbourGenerator generator;
     private final Avaliation avaliation;
@@ -62,26 +66,25 @@ public class SimulatedAnnealing implements Algorithm {
                 final int avaliationNewState = avaliation.avaliate(newState);
                 final int avaliationCurrentState = avaliation.avaliate(currentState);
                 final int delta = avaliationNewState - avaliationCurrentState;
-                System.out.println(String.format("Iteration %d, generation %d", i, j));
-                System.out.println(String.format("avaliation: currentState %d, newState %d", avaliationCurrentState,
+                log.debug(String.format("Iteration %d, generation %d", i, j));
+                log.debug(String.format("avaliation: currentState %d, newState %d", avaliationCurrentState,
                         avaliationNewState));
-                System.out.println(String.format("delta %d", delta));
-                System.out.println(String.format("success %d", numberSuccess));
+                log.debug(String.format("delta %d", delta));
+                log.debug(String.format("success %d", numberSuccess));
 
                 final double randomDouble = random.nextDouble();
                 final double calculation = Math.pow(Math.E, (-delta / currentTemperature));
                 final boolean changeValues = changeValues(delta, randomDouble, calculation);
                 if (changeValues) {
-                    System.out.println(
-                            String.format("values: exponetial^(delta/currentTemperature) %f, random: %f, change %b",
-                                    calculation, randomDouble, changeValues));
+                    log.debug(String.format("values: exponetial^(delta/currentTemperature) %f, random: %f, change %b",
+                            calculation, randomDouble, changeValues));
                     currentState = newState;
                     numberSuccess++;
                 }
                 j++;
             } while ((numberSuccess < maxSuccessPerIteration) && (j <= maxGenerationsPerIteration));
             currentTemperature *= temperatureReductionFactor;
-            System.out.println(String.format("currentTemperature %f", currentTemperature));
+            log.debug(String.format("currentTemperature %f", currentTemperature));
             i++;
         } while ((numberSuccess > 0) && (i <= maxIterations));
         return currentState;

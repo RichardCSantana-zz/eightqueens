@@ -1,5 +1,8 @@
 initialTemperature: 10
 maxSuccessPerIteration: 10
-maxGenerationsPerIteration: 1000
-temperatureReductionFactor: 1000
-maxIterations: 1000
+maxGenerationsPerIteration: 10000
+temperatureReductionFactor: 0.7
+maxIterations: 10000
+logging:
+    level:
+        root: DEBUG

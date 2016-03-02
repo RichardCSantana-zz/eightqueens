@@ -43,8 +43,7 @@ public class EightQueensSolver implements CommandLineRunner {
 
 	public void run(final String... args) throws Exception {
 		final Neighbour initialState = generator.generate(numberOfQueens);
-		final Neighbour result = algorithm.run(initialState);// TODO
-		// rethink
+		final Neighbour result = algorithm.run(initialState);
 		log.info("Final Result:\n {}", result);
 		log.info("Avaliation: {}", avaliation.avaliate(result));
 	}

@@ -21,3 +21,9 @@ temperatureReductionFactor | reduction factor of temperature at each iteration, 
 maxIterations | maximum number of iterations
 numberOfQueens | number of queens to te algorithm solve
 logging.level.root | level of details about the algorithm running ( INFO to result, DEBUG to execution)
+
+## RoadMap
+
+- Improve log's content and appearanc
+- Implements more algorithms and choose with use by configuration
+ 

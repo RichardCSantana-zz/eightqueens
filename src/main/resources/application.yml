@@ -3,6 +3,7 @@ maxSuccessPerIteration: 10
 maxGenerationsPerIteration: 10000
 temperatureReductionFactor: 0.7
 maxIterations: 10000
+numberOfQueens: 8
 logging:
     level:
-        root: DEBUG
+        root: INFO

@@ -11,6 +11,6 @@ import br.com.richardcsantana.model.Neighbour;
  */
 public interface Algorithm {
 
-	Neighbour run(Neighbour inicialState);
+    Neighbour run(Neighbour inicialState, int numberOfQueens);
 
 }

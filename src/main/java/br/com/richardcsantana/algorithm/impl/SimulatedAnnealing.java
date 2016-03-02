@@ -52,7 +52,7 @@ public class SimulatedAnnealing implements Algorithm {
      * br.com.richardcsantana.algorithm.Algorithm#run(br.com.richardcsantana.
      * model.Neighbour)
      */
-    public Neighbour run(final Neighbour inicialState) {
+    public Neighbour run(final Neighbour inicialState, final int numberOfQueens) {
         Neighbour currentState = inicialState;
         double currentTemperature = initialTemperature;
         int i = 1;
@@ -62,7 +62,7 @@ public class SimulatedAnnealing implements Algorithm {
             int j = 1;
             numberSuccess = 0;
             do {
-                final Neighbour newState = generator.generate(8);
+                final Neighbour newState = generator.generate(numberOfQueens);
                 final int avaliationNewState = avaliation.avaliate(newState);
                 final int avaliationCurrentState = avaliation.avaliate(currentState);
                 final int delta = avaliationNewState - avaliationCurrentState;

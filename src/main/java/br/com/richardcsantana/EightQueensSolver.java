@@ -23,29 +23,29 @@ import br.com.richardcsantana.model.Neighbour;
 @SpringBootApplication
 public class EightQueensSolver implements CommandLineRunner {
 
-    private static final Logger log = LoggerFactory.getLogger(EightQueensSolver.class);
+	private static final Logger log = LoggerFactory.getLogger(EightQueensSolver.class);
 
-    @Autowired
-    private Algorithm algorithm;
+	@Autowired
+	private Algorithm algorithm;
 
-    @Autowired
-    private NeighbourGenerator generator;
+	@Autowired
+	private NeighbourGenerator generator;
 
-    @Autowired
-    private Avaliation avaliation;
+	@Autowired
+	private Avaliation avaliation;
 
-    @Value("${numberOfQueens:8}")
-    private int numberOfQueens;
+	@Value("${numberOfQueens:8}")
+	private int numberOfQueens;
 
-    public static void main(final String[] args) {
-        SpringApplication.run(EightQueensSolver.class, args);
-    }
+	public static void main(final String[] args) {
+		SpringApplication.run(EightQueensSolver.class, args);
+	}
 
-    public void run(final String... args) throws Exception {
-        final Neighbour result = algorithm.run(generator.generate(numberOfQueens), numberOfQueens);// TODO
-                                                                                                   // rethink
-        log.info(String.format("Final Result:\n %s", result));
-        log.info(String.format("Avaliation: %s", avaliation.avaliate(result)));
-    }
+	public void run(final String... args) throws Exception {
+		final Neighbour result = algorithm.run(generator.generate(numberOfQueens), numberOfQueens);// TODO
+		// rethink
+		log.info("Final Result:\n {}", result);
+		log.info("Avaliation: {}", avaliation.avaliate(result));
+	}
 
 }

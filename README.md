@@ -9,7 +9,7 @@ To build this run **"mvn clean package"** and get the **EightQueens-0.0.1-SNAPSH
 
 ## Configuration
 
-To edit configurations of the software, change that on src/main/resource/application.yml.
+To edit configurations of the software change that on src/main/resource/application.yml.
 List of configurations:
 
 Configuration | Description

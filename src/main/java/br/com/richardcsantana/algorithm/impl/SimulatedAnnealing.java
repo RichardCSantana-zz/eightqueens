@@ -52,16 +52,17 @@ public class SimulatedAnnealing implements Algorithm {
 	 * br.com.richardcsantana.algorithm.Algorithm#run(br.com.richardcsantana.
 	 * model.Neighbour)
 	 */
-	public Neighbour run(final Neighbour inicialState, final int numberOfQueens) {
+	public Neighbour run(final Neighbour inicialState) {
 		Neighbour currentState = inicialState;
 		double currentTemperature = initialTemperature;
+		final int numberOfQueens = inicialState.getSize();
 		int i = 1;
 		int numberSuccess = 0;
 		final Random random = new Random();
 		if (avaliation.avaliate(currentState) == 0) {
 			return currentState;
 		}
-		do {
+		answered: do {
 			int j = 1;
 			numberSuccess = 0;
 			do {
@@ -82,6 +83,9 @@ public class SimulatedAnnealing implements Algorithm {
 							randomDouble, changeValues);
 					currentState = newState;
 					numberSuccess++;
+					if (avaliationNewState == 0) {
+						break answered;
+					}
 				}
 				j++;
 			} while ((numberSuccess < maxSuccessPerIteration) && (j <= maxGenerationsPerIteration));

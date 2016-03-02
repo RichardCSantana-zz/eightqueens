@@ -1,0 +1,5 @@
+initialTemperature: 10
+maxSuccessPerIteration: 10
+maxGenerationsPerIteration: 1000
+temperatureReductionFactor: 1000
+maxIterations: 1000
